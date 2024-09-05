@@ -193,19 +193,13 @@ const addToCart = (product) => {
 };
 
 // Function to update the quantity of a product in the cart
-const updateQuantity = (index, quantity) => {
-  if (quantity <= 0) {
-    quantity = 1;
-  }
-  cart[index].quantity = quantity;
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCart();
-  const totalElement = document.getElementById('total');
-  totalElement.textContent = cart.reduce((total, product) => {
-    const price = parseInt(product.price.replace("N", "").replace(",", ""));
-    return total + (isNaN(price) ? 0 : price) * product.quantity;
-  }, 0);
-};
+function updateQuantity(product, quantity) {
+  product.quantity = quantity;
+  let button = product.parentNode.parentNode.querySelector('.shoe-1.btn');
+  button.addEventListener('click', () => {
+    addToCart(product);
+  });
+}
 
 // Initialize cart from local storage
 const initCart = () => {
@@ -257,10 +251,12 @@ if (seeMoreBtn) {
   });
 }
 
-document.getElementById('purchase-btn').addEventListener('click', () => {
-  document.getElementById('purchase-form').style.display = 'block';
+// event listener to purchase button
+document.querySelector('body').addEventListener('click', (e) => {
+  if (e.target.id === 'purchase-btn') {
+    document.getElementById('purchase-form').style.display = 'block';
+  }
 });
-
 document.getElementById('submit-btn').addEventListener('click', (e) => {
   e.preventDefault();
   const address = document.getElementById('address').value;
@@ -277,4 +273,16 @@ document.getElementById('submit-btn').addEventListener('click', (e) => {
   } else {
     alert('Please enter both address and phone number.');
   }
+});
+
+document.querySelectorAll('.quantity').forEach(input => {
+  input.addEventListener('change', () => {
+    let product = {
+      id: input.parentNode.parentNode.querySelector('.name').innerText,
+      image: input.parentNode.parentNode.querySelector('img').src,
+      price: input.parentNode.parentNode.querySelector('.price').innerText,
+      quantity: input.value
+    };
+    updateQuantity(product, input.value);
+  });
 });
