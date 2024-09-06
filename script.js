@@ -255,6 +255,7 @@ if (seeMoreBtn) {
 document.querySelector('body').addEventListener('click', (e) => {
   if (e.target.id === 'purchase-btn') {
     document.getElementById('purchase-form').style.display = 'block';
+    document.getElementById('purchase-form').style.padding = '20px'
   }
 });
 document.getElementById('submit-btn').addEventListener('click', (e) => {
