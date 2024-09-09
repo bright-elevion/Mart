@@ -18,33 +18,37 @@
        </div>
         
     <ul class="links">
-        <li class="link-list"><a class="list-link"  href="store.html">Store</a></li>
-        <li class="link-list"><a class="list-link" href="#cart-container"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-        <li class="link-list"><a class="list-link" href="#checkout">Checkout</a></li>
-        <li class="link-list"><a class="list-link" href="http://">Feedback</a></li>
+        <li class="link-list"><a class="list-link"  href="#store">Store</a></li>
+        <li class="link-list"><a class="list-link" href="#cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+        <li class="link-list"><a class="list-link" href="#contacts">Contacts</a></li>
+        <!-- <li class="link-list"><a class="list-link" href="http://">Feedback</a></li> -->
     </ul>
 </nav>
 
 <main>
-    <h1>Store</h1>
+    <section id="store">
+     <h1>Store</h1>
     <div class="underline"></div>
         <div class="product-container" id="product-container">
             <!-- product here -->
         </div>
 
-   
-    <div id="more-product-container" class="product-container">
-        <!-- new product list -->
-    </div>
     <button class="next" id="see-more-btn">See More</button>
-   
-  
-    <div class="cart-container" id="cart-container">
+      
+    </section>
+    
+    <section id="cart">
+        <h1>Cart</h1>
+        <div class="underline"></div>
+        <div class="cart-container" id="cart-container">
         <!-- cart list -->
     </div> 
 
-    <div class="checkout" id="checkout">
+    <section id="checkout">
+       <div class="checkout" id="checkout">
      <form id="purchase-form" style="display: none;">
+        <h1 class="sample">checkout</h1>
+        <div class="underline"></div>
        <label for="address">Home Address:</label>
        <input type="text" id="address" required>
        <label for="phoneNumber">Phone Number:</label>
@@ -52,11 +56,26 @@
        <button id="submit-btn">Submit</button>
      </form>
     </div>
+      
+    </section>
+    </section>
+
+    <section id="contacts">
+        <h1>Contacts</h1>
+        <div class="underline"></div>
     
-
+        <div class="contacts" id="contacts">
+      <form id="contacts-form">
+        <label for="address">Home Address:</label>
+        <input type="text" id="address" required>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" required>
+        <button id="submit-btn">Submit</button>
+      </form>
+     </div>
+       
+     </section>
   
-
-
 </main>
 
 
@@ -65,4 +84,4 @@
 </footer>
     <script src="script.js"></script>
 </body>
-</html>          
+</html>    
