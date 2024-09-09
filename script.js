@@ -6,6 +6,16 @@ toggle.addEventListener('click', () => {
   links.classList.toggle('show');
 });
 
+let currentPageId = 'store';
+document.querySelectorAll('nav a').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const pageId = link.getAttribute('href').slice(1);
+    document.querySelectorAll('main > section').forEach((section) => {
+      section.style.display = (pageId === (section.id)) ? 'block' : 'none';
+    });
+  });
+});
 
 // Store page functionality
 const productContainer = document.getElementById('product-container');
